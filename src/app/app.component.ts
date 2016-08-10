@@ -1,4 +1,7 @@
 declare var Pusher: any;
+declare var jQuery:any;
+
+
 
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {Component} from '@angular/core';
@@ -11,36 +14,17 @@ import SubscriptionComponent from './subscription.component';
   directives: [SubscriptionComponent],
 })
 class AppComponent {
-  private newSearchTerm: string;
-  private pusher;
-  private channels: any[];
+ 
+ someVar : string = "AAA";
 
   constructor() {
-    this.pusher = new Pusher('9fd1b33fcb36d968145f');
-    this.channels = [];
+        
   }
 
-  public newSubscription() {
-    this.channels.push({term: this.newSearchTerm, active: true});
-    this.newSearchTerm = '';
+  subscribe(event){
+  this.someVar = "BBBB";    
   }
 
-  public clearSearch(channel) {
-    this.channels = this.channels.filter((ch) => {
-      if (ch.term === channel.term) {
-        this.toggleSearch(channel);
-      }
-      return ch.term !== channel.term;
-    });
-  }
-  public toggleSearch(channel) {
-    for (let ch of this.channels) {
-      if (ch.term === channel.term) {
-        ch.active = !ch.active;
-        break;
-      }
-    }
-  }
 }
 
 bootstrap(AppComponent);

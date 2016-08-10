@@ -1,6 +1,6 @@
-<div class="center-all-container" style="margin-top:15">
+<div class="center-all-container" style="margin-top:20">
   <div id="logo">
-         <img src="src/img/newlogo.png" width="150"/>
+         <img src="src/img/newlogo.png" width="200"/>
        </div> 
 
   <section class="blue-gradient-background intro-splash splash" style="opacity: 1;
@@ -10,7 +10,7 @@
 
        
 
-       <video width="600" controls style="margin-top : -110">
+       <video width="750" controls style="margin-top : -160">
         <source src="src/img/mov_bbb.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
       </video>
@@ -18,13 +18,9 @@
         <!--<b>BotFactory. Coming Soon !</b>-->
       </h1>
 
-      <p class="white light splash-subtitle">
-        Be an early subscriber. Register below
-      </p>
-
-      <div id="search-form">
+        <div id="search-form" style="margin-top:-1">
         <form (ngSubmit)="newSubscription()">
-          <input class="swish-input" [(ngModel)]="newSearchTerm" placeholder="enter your email" />
+          <input class="swish-input"  placeholder="enter your email" />
           <button class="bright-blue-hover btn-white">Subscribe</button>
         </form>
       </div>
@@ -33,23 +29,7 @@
 
   <section style="margine">
     <div class="container tweets-container">
-      <div id="channels-list">
-        <div class="channel" *ngFor="let channel of channels">
-          <h3 class="white light">
-            <img class="twitter-icon" src="src/img/twitter.png" width="30" />
-            Tweets for {{ channel.term }}
-          </h3>
-          <div id="subscription-controls">
-            <button class="btn-white secondary" (click)="toggleSearch(channel)">
-              {{channel.active ? 'Stop' : 'Restart'}} Stream
-            </button>
-            <button class="btn-white secondary" (click)="clearSearch(channel)">
-              Remove Results
-            </button>
-          </div>
-          <subscription [search]="channel" [pusher]="pusher"></subscription>
-        </div>
-      </div>
+  
     </div>
   </section>
 
